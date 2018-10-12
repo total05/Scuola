@@ -1,0 +1,28 @@
+package com.canalServer;
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+
+public class SocketServer {
+	
+	public SocketServer(int PORT) throws Exception {
+		System.out.println("TCP Server Listening on Port: " + PORT + "..");
+		ServerSocket ss = new ServerSocket(PORT);
+		Socket s = ss.accept();
+		Scanner read = new Scanner(s.getInputStream());
+		String data = read.nextLine();
+		System.out.println(s.getRemoteSocketAddress() + " >> " + data + "..");
+		read.close();
+		s.close();
+		ss.close();
+		System.out.println("TCP Server Close..");
+	}
+	
+	public static void main(String[] args) throws Exception {
+		final int PORT = (args.length > 0) ? Integer.parseInt(args[0]) : 12345;
+		new DoorListener(PORT);
+	}
+
+}
