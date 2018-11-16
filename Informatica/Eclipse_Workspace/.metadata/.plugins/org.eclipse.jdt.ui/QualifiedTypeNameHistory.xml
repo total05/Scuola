@@ -17,7 +17,7 @@
 <fullyQualifiedTypeName name="java.awt.Button"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.StackPane"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
-<fullyQualifiedTypeName name="javafx.scene.Parent"/>
-<fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
 <fullyQualifiedTypeName name="javafx.scene.Scene"/>
+<fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
+<fullyQualifiedTypeName name="javafx.scene.Parent"/>
 </qualifiedTypeNameHistroy>
