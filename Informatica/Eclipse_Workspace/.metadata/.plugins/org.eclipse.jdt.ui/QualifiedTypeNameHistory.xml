@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="java.net.Socket"/>
 <fullyQualifiedTypeName name="java.net.ServerSocket"/>
 <fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSeparatorUI"/>
-<fullyQualifiedTypeName name="java.net.InetAddress"/>
 <fullyQualifiedTypeName name="java.util.Enumeration"/>
 <fullyQualifiedTypeName name="java.net.NetworkInterface"/>
 <fullyQualifiedTypeName name="java.awt.Button"/>
@@ -20,4 +19,7 @@
 <fullyQualifiedTypeName name="javafx.scene.Scene"/>
 <fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
 <fullyQualifiedTypeName name="javafx.scene.Parent"/>
+<fullyQualifiedTypeName name="java.net.InetAddress"/>
+<fullyQualifiedTypeName name="java.net.DatagramSocket"/>
+<fullyQualifiedTypeName name="java.net.DatagramPacket"/>
 </qualifiedTypeNameHistroy>
