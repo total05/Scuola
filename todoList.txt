@@ -1,0 +1,3 @@
+1.Correggere l'errore da primo avvio login
+2.Correggere il fatto che quando si preme invio 
+in game con campo vuoto non calcoli il tentativo
