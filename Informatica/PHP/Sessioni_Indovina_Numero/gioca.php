@@ -46,7 +46,7 @@
             <label for="nUtente">Inserisci un numero</label>
             <input type="text" name="nUtente"> 
             <?php
-            echo $messaggio;
+            echo $messaggio."<br>";
             ?>
             <input type="submit" value="Indovina">
         </form>

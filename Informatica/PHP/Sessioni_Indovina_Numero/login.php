@@ -11,9 +11,8 @@
       }
       */
       //Login con controllo sui file
-      
-      
-      
+      $_SESSION['registrato'] = '';
+      $err = '<p style="margin-bottom: 0 0 0 5">Login Errato</p>';
       if(isset($_GET['login'])){
         $buffer = fopen("users.php","r");
         $username = $_GET['username'];
@@ -25,6 +24,8 @@
                 $_SESSION['registrato'] = true;
                 $_SESSION['username'] = $_GET['username'];
                 echo "<meta http-equiv=\"refresh\" content=\"0;url=gioca.php\" />";
+              }else{
+                $_SESSION['registrato'] = false;
               }
         }
         fclose($buffer);
@@ -48,6 +49,7 @@
         <input type="text" name="username" style="margin-bottom: 15px" value=<?php if(isset($_GET['username'])) echo $_GET['username']?>> <br/>
         <label for="password">Password</label>
         <input type="password" name="password" style="margin-bottom: 15px"> <br/>
+        <?php if(!$_SESSION['registrato'])echo $err ?>
         <input type="submit" value="Login" name="login">
         <input type="submit" value="Registrati" name="new">
       </form>
