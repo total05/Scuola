@@ -1,8 +1,8 @@
 <!--Davide Canal-->
 <?php session_start();
-    if(!isset($_SESSION['username']))
+    if(!$_SESSION['registrato']){
         header("Location: ./login.php");
-    
+    };
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -11,6 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Indovina Numero</title>
     <?php
+        $messaggio = "";
        if($_SERVER['QUERY_STRING'] == ""){
             $_SESSION['ndi'] = rand(0,100);
             $_SESSION['tentativi'] = 0;
@@ -21,9 +22,9 @@
                 if($_GET['nUtente'] != $_SESSION['ndi']){
                     $_SESSION['tentativi']++;
                     if($_GET['nUtente'] > $_SESSION['ndi']){
-                        echo '<p>Il numero è troppo grande</p>';
+                        $messaggio = '<p style="margin: 0">Il numero è troppo grande</p>';
                     }else{
-                        echo '<p>Il numero è troppo piccolo</p>';
+                        $messaggio = '<p style="margin: 0">Il numero è troppo piccolo</p>';
                     }
                 }else{
                     header("Location: ./riepilogo.php");
@@ -43,10 +44,14 @@
     <div>
         <form action="gioca.php" method="GET">
             <label for="nUtente">Inserisci un numero</label>
-            <input type="text" name="nUtente" style="margin-bottom: 15px"> <br/>
-            
+            <input type="text" name="nUtente"> 
+            <?php
+            echo $messaggio;
+            ?>
             <input type="submit" value="Indovina">
         </form>
+
+        
     </div>
 </body>
 </html> 

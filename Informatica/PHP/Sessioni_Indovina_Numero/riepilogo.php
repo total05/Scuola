@@ -7,11 +7,16 @@
     <title>Riepilogo Partita</title>
     <?php 
         //Controllo dei bottoni nella pagina
-        if($_GET['end'] == "Rigioca"){
-            header("Location: ./gioca.php");
-        }else if($_GET['end'] == "Fine"){
-            header("Location: ./login.php");
+        if(isset($_GET['end'])){
+            if($_GET['end'] == "Rigioca"){
+                header("Location: ./gioca.php");
+            }else if($_GET['end'] == "Fine"){
+                session_destroy();
+                header("Location: ./login.php");
+                
+            }
         }
+        
 
         //Controllo se l'utente accede senza giocare
         if($_SESSION['tentativi'] == 0){
