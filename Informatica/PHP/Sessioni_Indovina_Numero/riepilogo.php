@@ -9,14 +9,17 @@
         //Controllo dei bottoni nella pagina
         if(isset($_GET['end'])){
             if($_GET['end'] == "Rigioca"){
+                file_put_contents("top.txt", $_SESSION["username"]."|".$_SESSION["tentativi"]."|"."\n", FILE_APPEND | LOCK_EX);
                 header("Location: ./gioca.php");
+
+                
             }else if($_GET['end'] == "Fine"){
+                file_put_contents("top.txt", $_SESSION["username"]."|".$_SESSION["tentativi"]."|"."\n", FILE_APPEND | LOCK_EX);
                 session_destroy();
                 header("Location: ./login.php");
                 
             }
         }
-        
 
         //Controllo se l'utente accede senza giocare
         if($_SESSION['tentativi'] == 0){

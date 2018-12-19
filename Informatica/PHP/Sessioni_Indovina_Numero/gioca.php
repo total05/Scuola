@@ -2,6 +2,7 @@
 <?php session_start();
     if(!$_SESSION['registrato']){
         header("Location: ./login.php");
+        die();
     };
 ?>
 <!DOCTYPE html>
@@ -12,27 +13,28 @@
     <title>Indovina Numero</title>
     <?php
         $messaggio = "";
-       if($_SERVER['QUERY_STRING'] == ""){
+       if($_SERVER["QUERY_STRING"] == ""){
             $_SESSION['ndi'] = rand(0,100);
             $_SESSION['tentativi'] = 0;
-       }else{
-           if($_GET['nUtente'] == $_SESSION['ndi']){
-                header("Location: ./riepilogo.php");
-           }else{
-                if($_GET['nUtente'] != $_SESSION['ndi']){
-                    $_SESSION['tentativi']++;
-                    if($_GET['nUtente'] > $_SESSION['ndi']){
-                        $messaggio = '<p style="margin: 0">Il numero è troppo grande</p>';
-                    }else{
-                        $messaggio = '<p style="margin: 0">Il numero è troppo piccolo</p>';
-                    }
-                }else{
-                    header("Location: ./riepilogo.php");
+       }
+        if(isset($_GET["nUtente"])){
+             if($_GET['nUtente'] == $_SESSION['ndi']){
+                 header("Location: ./riepilogo.php");
+              }else{
+                  if($_GET['nUtente'] != $_SESSION['ndi']){
+                      $_SESSION['tentativi']++;
+                       if($_GET['nUtente'] > $_SESSION['ndi']){
+                           $messaggio = '<p style="margin: 0">Il numero è troppo grande</p>';
+                        }else{
+                            $messaggio = '<p style="margin: 0">Il numero è troppo piccolo</p>';
+                        }
+                  }else{
+                       header("Location: ./riepilogo.php");
+                      }
                 }
             }
-                    
-
-        }
+        
+           
             
 
        
